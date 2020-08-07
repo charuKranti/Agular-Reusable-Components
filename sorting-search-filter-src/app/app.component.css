@@ -1,0 +1,39 @@
+/* Add application styles & imports to this file! */
+
+.sortIcon {
+    position: relative;
+    margin: 2px 0 0 6px;
+    width: 12px;
+    height: 15px;
+    display: inline-block;
+    top:2px
+}
+
+
+.sortIcon::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid red;
+    border-top: 2px solid red;
+    box-sizing: border-box;
+    transform: rotate(45deg);
+    left: 0;
+}
+.sortIcon.asc {
+    transform: rotate(180deg);
+    left: -3px;
+}
+.sortIcon::after {
+  content:"";
+  position: absolute;
+  width: 2px;
+  height: 14px;
+  box-sizing: border-box;
+  background-color:red;
+  left:3px;
+}
+.sortIcon.asc {
+   transform: rotate(180deg);
+}

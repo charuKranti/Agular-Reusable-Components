@@ -1,0 +1,19 @@
+<input type="text" (keyup)="onChangeTable()" [(ngModel)]="filterBy.searchText" placeholder="Serach any fields"/>
+
+<table border="1" width="100%">
+  <tr>
+    <th *ngFor="let column of columns" (click)="column.sort ? handleSort(column) : null">
+      <span>{{column.title}}</span> 
+      <span *ngIf="column.sort" class="sortIcon" [ngClass]="{'asc':column.sorting}"></span>
+    </th>
+  </tr>
+  
+  <tr *ngFor="let customer of records">
+    <th scope="row">{{customer.firstName}}</th>
+    <td>{{customer.id}}</td>
+    <td>{{customer.startDate}}</td>
+  </tr>
+
+</table>
+
+<button (click)="loadMoreData()" [disabled]="this.itemsPerPage > records.length">Load More</button>
